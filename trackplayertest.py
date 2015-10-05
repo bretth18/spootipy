@@ -11,9 +11,11 @@ logging.basicConfig(level=logging.DEBUG)
 if sys.argv[1:]:
     track_uri = sys.argv[1]
 else:
-    track_uri = 'spotify:track:6xZtSE6xaBxmRozKA0F6TA'
+    track_uri = raw_input('Enter spotify uri:')
+    if track_uri == 'null':
+        track_uri = 'spotify:track:5K4ExI2qvE1Ule3u7LxUDT'
+    
 
-#TODO: Implement username/password input and storage of string type variables
 #TODO: Implement custom spotify track uri input
 
 
