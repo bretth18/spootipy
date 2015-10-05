@@ -17,6 +17,7 @@ else:
     if track_uri == 'null':
         track_uri = 'spotify:track:5K4ExI2qvE1Ule3u7LxUDT'
 
+
         #print('Now Playing :' + t.name)
 
 
@@ -27,13 +28,21 @@ else:
 session = spotify.Session()
 username = raw_input('Enter username: ')
 password = getpass.getpass('Enter password: ')
+#welcome message for the person who wrote this sheeeeeeeeee
+
 if username == 'bretth18':
     print('Welcome Creator')
 
-    #username = input('Enter username: ')
-    #password = input('Enter password: ')
 session.login(username, password)
 remember_me = True
+
+#if session.login(self.fail('ErrorType.BAD_USERNAME_OR_PASSWORD')):
+    #session = spotify.Session()
+    #username = raw_input('Enter username: ')
+    #password = getpass.getpass('Enter password: ')
+
+
+#TODO: Implement protocal for dealing with bad login "ErrorType.BAD_USERNAME_OR_PASSWORD"
 
 # Process events in the background
 loop = spotify.EventLoop(session)
@@ -50,6 +59,10 @@ end_of_track = threading.Event()
 def on_connection_state_updated(session):
     if session.connection.state is spotify.ConnectionState.LOGGED_IN:
         logged_in.set()
+    #TODO: spotify.ErrorType.state.BAD_USERNAME_OR_PASSWORD is not correlated w/ session.connection.state
+    #elif session.connection.state is spotify.ErrorType.BAD_USERNAME_OR_PASSWORD:
+
+        #print('Error: BAD USERNAME OR PASSWORD, CHECK CREDENTIALS')
 
 
 def on_end_of_track(self):
