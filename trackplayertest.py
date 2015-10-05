@@ -17,7 +17,7 @@ else:
     if track_uri == 'null':
         track_uri = 'spotify:track:5K4ExI2qvE1Ule3u7LxUDT'
 
-        print('Now Playing :' + t.name)
+        #print('Now Playing :' + t.name)
 
 
 #TODO: Implement custom spotify track uri input, with message stating current track playing
@@ -27,6 +27,8 @@ else:
 session = spotify.Session()
 username = raw_input('Enter username: ')
 password = getpass.getpass('Enter password: ')
+if username == 'bretth18':
+    print('Welcome Creator')
 
     #username = input('Enter username: ')
     #password = input('Enter password: ')
@@ -68,6 +70,7 @@ logged_in.wait()
 track = session.get_track(track_uri).load()
 session.player.load(track)
 session.player.play()
+print('Now Playing: '+ track.name)
 
 # Wait for playback to complete or Ctrl+C
 try:
