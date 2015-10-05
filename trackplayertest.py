@@ -5,19 +5,26 @@ import threading
 import logging
 import spotify
 
+#debuging logger enabled
+logging.basicConfig(level=logging.DEBUG)
+
 if sys.argv[1:]:
     track_uri = sys.argv[1]
 else:
     track_uri = 'spotify:track:6xZtSE6xaBxmRozKA0F6TA'
 
 #TODO: Implement username/password input and storage of string type variables
+#TODO: Implement custom spotify track uri input
 
 
 # Assuming a spotify_appkey.key in the current dir
 session = spotify.Session()
+username = raw_input('Enter username: ')
+password = raw_input('Enter password: ')
+
     #username = input('Enter username: ')
     #password = input('Enter password: ')
-session.login('bretth18', 'henderson')
+session.login(username, password)
 remember_me = True
 
 # Process events in the background
