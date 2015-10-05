@@ -4,6 +4,7 @@ import sys
 import threading
 import logging
 import spotify
+import getpass
 
 #debuging logger enabled
 logging.basicConfig(level=logging.DEBUG)
@@ -12,17 +13,20 @@ if sys.argv[1:]:
     track_uri = sys.argv[1]
 else:
     track_uri = raw_input('Enter spotify uri:')
+    #If user input is equal to null, play "Marijuana"
     if track_uri == 'null':
         track_uri = 'spotify:track:5K4ExI2qvE1Ule3u7LxUDT'
-    
 
-#TODO: Implement custom spotify track uri input
+        print('Now Playing :' + t.name)
+
+
+#TODO: Implement custom spotify track uri input, with message stating current track playing
 
 
 # Assuming a spotify_appkey.key in the current dir
 session = spotify.Session()
 username = raw_input('Enter username: ')
-password = raw_input('Enter password: ')
+password = getpass.getpass('Enter password: ')
 
     #username = input('Enter username: ')
     #password = input('Enter password: ')
