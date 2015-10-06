@@ -28,8 +28,8 @@ else:
 session = spotify.Session()
 username = raw_input('Enter username: ')
 password = getpass.getpass('Enter password: ')
-#welcome message for the person who wrote this sheeeeeeeeee
 
+#welcome message for the person who wrote this sheeeeeeeeee
 if username == 'bretth18':
     print('Welcome Creator')
 
@@ -59,20 +59,24 @@ end_of_track = threading.Event()
 def on_connection_state_updated(session):
     if session.connection.state is spotify.ConnectionState.LOGGED_IN:
         logged_in.set()
+    #elif spotify.Error:
+    #else if LOGGED_IN(spotify.ErrorType.BAD_USERNAME_OR_PASSWORD):
     #TODO: spotify.ErrorType.state.BAD_USERNAME_OR_PASSWORD is not correlated w/ session.connection.state
     #elif session.connection.state is spotify.ErrorType.BAD_USERNAME_OR_PASSWORD:
-
         #print('Error: BAD USERNAME OR PASSWORD, CHECK CREDENTIALS')
-
 
 def on_end_of_track(self):
     end_of_track.set()
-
 
 # Register event listeners
 session.on(
     spotify.SessionEvent.CONNECTION_STATE_UPDATED, on_connection_state_updated)
 session.on(spotify.SessionEvent.END_OF_TRACK, on_end_of_track)
+#TODO:Fix session listener for ErrorType.state.BAD_USERNAME_OR_PASSWORD
+#Event Listener is defined in libspotify
+#session.on(
+    #spotify.ErrorType.state.BAD_USERNAME_OR_PASSWORD, on_bad_login)
+
 
 # Assuming a previous login with remember_me=True and a proper logout
 #session.relogin()
