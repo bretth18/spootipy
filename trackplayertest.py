@@ -44,6 +44,10 @@ remember_me = True
 
 #TODO: Implement protocal for dealing with bad login "ErrorType.BAD_USERNAME_OR_PASSWORD"
 
+#def on_bad_login(spotify.ErrorType.state.BAD_USERNAME_OR_PASSWORD):
+#    session.login(spotify.CREDENTIALS)
+
+
 # Process events in the background
 loop = spotify.EventLoop(session)
 loop.start()
