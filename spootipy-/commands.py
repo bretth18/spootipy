@@ -1,5 +1,6 @@
 #TODO: implement libspotify features from module "spotify", implement complete pyspotify
 #method from trackplayertest.py
+#Remove AppleScript references, calls for functionality directly to spotify app, not through libspotify
 
 
 import os
@@ -110,7 +111,7 @@ class CommandManager(object):
     def play_song(self, track):
         """Given track info, send command to Spotify desktop client to play it."""
         ##TODO: Implement method for playing spotify track via libspotify
-        
+
 
         ##track_spotify_uri = track[4]
         ##apple_script_call = ['osascript', '-e', 'tell application "Spotify" to play track "{0}"'.format(track_spotify_uri)]
