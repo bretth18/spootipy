@@ -3,7 +3,7 @@ import curses
 import spotipy
 
 def run_loop(stdscreen):
-    command_handler = CommandHandler(stdscreen)
+    command_handler = CommandManager(stdscreen)
     search_key = 115
     select_key = ord('\n')
     spotify_client_key = 102
