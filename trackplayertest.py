@@ -12,29 +12,32 @@ logging.basicConfig(level=logging.DEBUG)
 if sys.argv[1:]:
     track_uri = sys.argv[1]
 else:
+    print("""       ____  ____  ____  ____  _____  _  ____ ___  _
+                / ___\/  __\/  _ \/  _ \/__ __\/ \/  __\\  \//
+                |    \|  \/|| / \|| / \|  / \  | ||  \/| \  /
+                \___ ||  __/| \_/|| \_/|  | |  | ||  __/ / /
+                \____/\_/   \____/\____/  \_/  \_/\_/   /_/  """)
     track_uri = raw_input('Enter spotify uri:')
     #If user input is equal to null, play "Marijuana"
     if track_uri == 'null':
         track_uri = 'spotify:track:5K4ExI2qvE1Ule3u7LxUDT'
 
-
-        #print('Now Playing :' + t.name)
-
-
 #TODO: Implement custom spotify track uri input, with message stating current track playing
 
-
+#def on_login(self):
 # Assuming a spotify_appkey.key in the current dir
-session = spotify.Session()
-username = raw_input('Enter username: ')
-password = getpass.getpass('Enter password: ')
+    session = spotify.Session()
+    username = raw_input('Enter username: ')
+    password = getpass.getpass('Enter password: ')
 
-#welcome message for the person who wrote this sheeeeeeeeee
-if username == 'bretth18':
-    print('Welcome Creator')
+#welcome message for user after username input
+    if username == 'bretth18':
+        print('Welcome Creator')
+    else:
+        print('Welcome: ' + username)
 
-session.login(username, password)
-remember_me = True
+    session.login(username, password)
+    remember_me = True
 
 #if session.login(self.fail('ErrorType.BAD_USERNAME_OR_PASSWORD')):
     #session = spotify.Session()
@@ -46,7 +49,6 @@ remember_me = True
 
 #def on_bad_login(spotify.ErrorType.state.BAD_USERNAME_OR_PASSWORD):
 #    session.login(spotify.CREDENTIALS)
-
 
 # Process events in the background
 loop = spotify.EventLoop(session)
