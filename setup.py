@@ -14,7 +14,7 @@ setup(
         url = 'https://github.com/bretth18',
         download_url = '',
         keywords = ['spotify', 'remote', 'audio', 'music', 'cli', 'spotipy', 'libspotify'],
-        install_requires=['requests', 'spotipy'],
+        install_requires=['requests', 'spotipy', 'getpass', 'pyspotify', 'colorama', 'blessings'  ],
         classifiers = [
                 'Intended Audience :: End Users/Desktop',
                 'Environment :: Console :: Curses',
