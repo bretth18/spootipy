@@ -98,7 +98,7 @@ track = session.get_track(track_uri).load()
 session.player.load(track)
 session.player.play()
 print t.red( 'Now Playing: '+ track.name)
-
+#TODO: method for handling libspotify loop process. Throws exception error related to double process
 
 # Wait for playback to complete or Ctrl+C
 try:
