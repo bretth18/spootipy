@@ -1,4 +1,6 @@
 from __future__ import unicode_literals
+from blessings import Terminal
+
 
 import sys
 import threading
@@ -7,16 +9,18 @@ import spotify
 import getpass
 
 #debuging logger enabled
-logging.basicConfig(level=logging.DEBUG)
+#logging.basicConfig(level=logging.DEBUG)
+t = Terminal()
+
 
 if sys.argv[1:]:
     track_uri = sys.argv[1]
 else:
-    print("""       ____  ____  ____  ____  _____  _  ____ ___  _
+    print("""                 ____  ____  ____  ____  _____  _  ____ ___  _
                 / ___\/  __\/  _ \/  _ \/__ __\/ \/  __\\  \//
                 |    \|  \/|| / \|| / \|  / \  | ||  \/| \  /
                 \___ ||  __/| \_/|| \_/|  | |  | ||  __/ / /
-                \____/\_/   \____/\____/  \_/  \_/\_/   /_/  """)
+                \____/\_/   \____/\____/  \_/  \_/\_/   /_/      """)
     track_uri = raw_input('Enter spotify uri:')
     #If user input is equal to null, play "Marijuana"
     if track_uri == 'null':
@@ -53,6 +57,7 @@ else:
 # Process events in the background
 loop = spotify.EventLoop(session)
 loop.start()
+print t.blue('Logging in...')
 
 # port audio sink
 audio = spotify.PortAudioSink(session)
@@ -93,7 +98,7 @@ logged_in.wait()
 track = session.get_track(track_uri).load()
 session.player.load(track)
 session.player.play()
-print('Now Playing: '+ track.name)
+print t.red( 'Now Playing: '+ track.name)
 
 # Wait for playback to complete or Ctrl+C
 try:
