@@ -1,0 +1,10 @@
+##install_requires(
+pip-install:
+
+  'pyspotify'
+  'libspotify'
+  'colorama'
+  'blessings'
+
+
+)

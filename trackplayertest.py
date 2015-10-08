@@ -26,8 +26,6 @@ else:
     if track_uri == 'null':
         track_uri = 'spotify:track:5K4ExI2qvE1Ule3u7LxUDT'
 
-#TODO: Implement custom spotify track uri input, with message stating current track playing
-
 #def on_login(self):
 # Assuming a spotify_appkey.key in the current dir
     session = spotify.Session()
@@ -58,6 +56,7 @@ else:
 loop = spotify.EventLoop(session)
 loop.start()
 print t.blue('Logging in...')
+
 
 # port audio sink
 audio = spotify.PortAudioSink(session)
@@ -99,6 +98,7 @@ track = session.get_track(track_uri).load()
 session.player.load(track)
 session.player.play()
 print t.red( 'Now Playing: '+ track.name)
+
 
 # Wait for playback to complete or Ctrl+C
 try:
