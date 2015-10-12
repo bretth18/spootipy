@@ -1,5 +1,6 @@
 from __future__ import unicode_literals
 from blessings import Terminal
+from sys import platform as _platform
 
 
 import sys
@@ -23,7 +24,7 @@ stderr_log_handler.setFormatter(formatter)
 
 logger.info('Info message')
 logger.error('Error message')
-#debuging logger enabled
+# if debuging logger enabled, uncomment:
 #logging.basicConfig(level=logging.DEBUG)
 t = Terminal()
 
@@ -73,8 +74,14 @@ loop.start()
 print t.blue('Logging in...')
 
 
-# port audio sink
-audio = spotify.PortAudioSink(session)
+# port audio sink:
+
+if _platform == "darwin":
+    #osx
+    audio = spotify.PortAudioSink(session)
+elif _platform == "linux" or _platform == "linux2":
+    #linux
+    audio = spotify.AlsaSink(session)
 
 # Events for coordination
 logged_in = threading.Event()
